@@ -5,7 +5,7 @@ BUCKET_SIZE = 10
 
 
 def bucket_sort(l):
-    buckets = [[] for _ in range(0, max(l) // BUCKET_SIZE + 1) ]
+    buckets = [[] for _ in range(0, max(l) // BUCKET_SIZE + 1)]
 
     for elem in l:
         buckets[elem//BUCKET_SIZE].append(elem)
@@ -23,6 +23,4 @@ if __name__ == "__main__":
 
     l = bucket_sort(init)
 
-    print(l)
-    print(sorted(init))
     print(f'is sort: {l == sorted(init)}')
