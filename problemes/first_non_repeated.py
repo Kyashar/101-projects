@@ -1,6 +1,3 @@
-import heapq
-
-
 def find_first_non_repeated_with_dic(string):
     dic = {}
     for c, index in zip(string, range(0, len(string))):
@@ -14,19 +11,23 @@ def find_first_non_repeated_with_dic(string):
 
 
 def find_first_non_repeated(string):
-    dq = []
+    nr = []
+    re = []
     for c in string:
-        if c in dq:
-            dq = list(filter(c.__ne__, dq))
-        else:
-            dq.append(c)
+        if c in nr:
+            nr = list(filter(c.__ne__, nr))
+            re.append(c)
+        elif c not in re:
+            nr.append(c)
 
-    return dq[0]
+    if len(nr) > 0:
+        return nr[0]
+    return None
 
 
 if __name__ == "__main__":
-    first_c = find_first_non_repeated_with_dic("stritnsg")
+    first_c = find_first_non_repeated_with_dic("strinsgttrrin")
     print(first_c)
-    first_c = find_first_non_repeated("stritnsg")
+    first_c = find_first_non_repeated("strinsgttrri")
     print(first_c)
 
